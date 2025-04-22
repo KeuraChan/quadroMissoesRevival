@@ -126,55 +126,79 @@ const locais = [
 ];
 
 const partesDeMonstros = [
-    "couro resistente", 
-    "dentes afiados", 
-    "garras afiadas", 
-    "escamas", 
-    "sangue mágico", 
-    "osso forte", 
-    "pelagem rara", 
-    "chifres", 
-    "pelo venenoso", 
-    "pedaço de crânio", 
-    "cauda de monstro", 
-    "tendão resistente", 
-    "ferrão venenoso", 
-    "unha de ferocidade", 
-    "1x adaga de osso"
-  ];
+  "couro resistente",
+  "dentes afiados",
+  "garras afiadas",
+  "escamas",
+  "sangue mágico",
+  "osso forte",
+  "pelagem rara",
+  "chifres",
+  "pelo venenoso",
+  "pedaço de crânio",
+  "cauda de monstro",
+  "tendão resistente",
+  "ferrão venenoso",
+  "unha de ferocidade",
+  "1x adaga de osso",
+];
 
-  const suprimentosAlquimia = [
-    "Musgo Dourado (Poção de Resistência)",
-    "Flor da Lua (Poção de Invisibilidade)",
-    "Raiz de Mandrágora (Poção de Força de Gigante)",
-    "Pétalas de Fogo (Poção de Sopro de Fogo)",
-    "Erva-dos-Ventos (Poção de Velocidade)",
-    "Cacto Espinhoso (Poção de Regeneração)",
-    "Raiz de Dragão (Elixir de Vitalidade)",
-    "Flor de Sangue (Poção de Cura)",
-    "Folhas de Eldoria (Poção de Cura)",
-    "Casca de Árvore Ancestral (Poção de Escudo Resistência)",
-    "Fruto de Salvia (Poção de Sabedoria)",
-    "Flor de Cristal (Poção de Magia Menor)",
-    "Semente de Ébano (Poção de Imunidade a Venenos)",
-    "Líquen Prateado (Poção de Resistência Mágica)",
-    "Erva Sombria (Poção de Visão Noturna)",
-    "Floração de Aço (Poção de Defesa)",
-    "Bálsamo de Feitiço (Antídoto)",
-    "Raiz de Gelo (Poção de Congelamento)",
-    "Flor das Sombras (Poção de Camuflagem)",
-    "Cascas de Fungo Negro (Antídoto)",
-    "Pólen de Alvorada (Poção de ResisTência a Fogo)",
-    "Flor de Fada (Poção de Levitação)",
-    "Grama de Espinhos (Poção de Proteção)",
-    "Baga de Urze (Poção de Cura Maior)",
-    "Musgo da Lua (Poção de Velocidade)",
-    "Folha de Lótus (Poção de Serenidade)",
-    "Raiz de Chifre-de-Águia (Poção de Voo)",
-    "Flor de Açoite (Poção de Agilidade)",
-    "1x Poção de Cura"
-  ];
-  
+const suprimentosAlquimia = [
+  // Ingredientes comuns (mais chances)
+  "Flor de Sangue (Poção de Cura)",
+  "Flor de Sangue (Poção de Cura)",
+  "Flor de Sangue (Poção de Cura)",
+  "Flor de Sangue (Poção de Cura)",
+  "Folhas de Eldoria (Poção de Cura)",
+  "Folhas de Eldoria (Poção de Cura)",
+  "Folhas de Eldoria (Poção de Cura)",
+  "Folhas de Eldoria (Poção de Cura)",
+  "Musgo Dourado (Poção de Resistência)",
+  "Musgo Dourado (Poção de Resistência)",
+  "Musgo Dourado (Poção de Resistência)",
+  "Musgo Dourado (Poção de Resistência)",
+  "Erva-dos-Ventos (Poção de Velocidade)",
+  "Erva-dos-Ventos (Poção de Velocidade)",
+  "Cacto Espinhoso (Poção de Regeneração)",
+  "Cacto Espinhoso (Poção de Regeneração)",
+  "Cascas de Fungo Negro (Antídoto)",
+  "Cascas de Fungo Negro (Antídoto)",
+  // Ingredientes mais raros (menos chances)
+  "Raiz de Mandrágora (Poção de Força de Gigante)",
+  "Raiz de Mandrágora (Poção de Força de Gigante)",
+  "Raiz de Mandrágora (Poção de Força de Gigante)",
+  "Pétalas de Fogo (Poção de Sopro de Fogo)",
+  "Pétalas de Fogo (Poção de Sopro de Fogo)",
+  "Pétalas de Fogo (Poção de Sopro de Fogo)",
+  "Raiz de Dragão (Elixir de Vitalidade)",
+  "Raiz de Dragão (Elixir de Vitalidade)",
+  "Raiz de Dragão (Elixir de Vitalidade)",
+  "Erva Sombria (Poção de Visão Noturna)",
+  "Erva Sombria (Poção de Visão Noturna)",
+  "Erva Sombria (Poção de Visão Noturna)",
+  "Pólen de Alvorada (Poção de Resistência a Fogo)",
+  "Pólen de Alvorada (Poção de Resistência a Fogo)",
+  "Pólen de Alvorada (Poção de Resistência a Fogo)",
+  "Flor de Cristal (Poção de Magia)",
+  "Flor de Cristal (Poção de Magia)",
+  "Flor de Cristal (Poção de Magia)",
+
+  // Poções de muito Raras
+  "2x Flor de Sangue (Poção de Cura)",
+  "2x Flor de Sangue (Poção de Cura)",
+  "Raiz de Chifre-de-Águia (Poção de Voo)",
+  "Raiz de Chifre-de-Águia (Poção de Voo)",
+  "Flor da Lua (Poção de Invisibilidade)",
+  "Flor da Lua (Poção de Invisibilidade)",
+  "1x Poção de Cura",
+  "1x Poção de Cura",
+
+  // Poções de Ultra Raras
+  "1x Poção de Cura Maior",
+  "2x Poções de Cura",
+  "1x Elixir de Resistência"
+];
+
 function gerarRecompensa(tipo, rand) {
   const ouro =
     tipo === "resgatar"
