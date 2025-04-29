@@ -235,7 +235,7 @@ function gerarRecompensa(tipo, rand) {
       : tipo === "matar"
       ? Math.floor(rand() * 21)
       : tipo === "coletar"
-      ? Math.floor(rand() * 5) - 1
+      ? Math.floor(rand() * 5)
       : 0;
 
   let extra;
