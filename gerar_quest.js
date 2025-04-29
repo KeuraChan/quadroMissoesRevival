@@ -48,7 +48,7 @@ const alvos = {
     "músico",
     "arborista",
   ],
-  matar: [
+  cacar: [
     "esqueleto",
     "goblin",
     "orc",
@@ -232,27 +232,28 @@ function gerarRecompensa(tipo, rand) {
   const ouro =
     tipo === "resgatar"
       ? Math.floor(rand() * 21) + 30
-      : tipo === "matar"
-      ? Math.floor(rand() * 29)
+      : tipo === "caçar"
+      ? Math.floor(rand() * 20)
       : tipo === "coletar"
-      ? Math.floor(rand() * 5)
+      ? Math.floor(rand() * 5) - 1
       : 0;
 
-  let extra;
-  if (tipo === "matar") {
+  let extra = ' ';
+  if (tipo === "caçar") {
     extra = partesDeMonstros[Math.floor(rand() * partesDeMonstros.length)];
   } else if (tipo === "coletar") {
     extra =
       suprimentosAlquimia[Math.floor(rand() * suprimentosAlquimia.length)];
   } else {
-    extra = "e uma gratificação do contratante";
+    if(Math.floor(rand() * 2 ) > 1)
+      extra = " uma gratificação do contratante";
   }
 
   return `${ouro} peças de ouro + ${extra}`;
 }
 
 function gerarMissao(rand) {
-  const tipos = ["resgatar", "matar", "coletar"];
+  const tipos = ["resgatar", "caçar", "coletar"];
   const tipo = tipos[Math.floor(rand() * tipos.length)];
   const alvo = alvos[tipo][Math.floor(rand() * alvos[tipo].length)];
   const local = locais[Math.floor(rand() * locais.length)];
@@ -260,7 +261,7 @@ function gerarMissao(rand) {
 
   const verbos = {
     resgatar: "Resgatar",
-    matar: "Eliminar",
+    cacar: "Eliminar",
     coletar: "Coletar",
   };
 
@@ -293,7 +294,7 @@ function gerarMissoesNaTela() {
         <strong>Missão ${i + 1}</strong><br>
         📜 ${missao.descricao}<br>
         🎁 Recompensa: ${missao.recompensa}<br>
-        🏷️ Tipo: ${missao.tipo}
+        🏷️ Tipo: ${ missao.tipo }
       `;
     container.appendChild(div);
   }
