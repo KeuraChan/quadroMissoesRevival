@@ -294,7 +294,7 @@ function gerarMissoesNaTela() {
         <strong>Missão ${i + 1}</strong><br>
         📜 ${missao.descricao}<br>
         🎁 Recompensa: ${missao.recompensa}<br>
-        🏷️ Tipo: ${ missao.tipo == "matar" ? "caçar" : missao.tipo }
+        🏷️ Tipo: ${ missao.tipo }
       `;
     container.appendChild(div);
   }
