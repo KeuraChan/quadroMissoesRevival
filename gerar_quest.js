@@ -110,37 +110,61 @@ const alvos = {
 const locais = [
   "nas florestas próximas",
   "nas montanhas",
-  "em uma caverna esquecida",
+  "em uma caverna",
   "nas estradas",
   "nos túneis",
   "em ruínas nas montanhas",
   "no topo de uma colina",
   "na beira de um rio",
   "na floresta densa",
-  "no pântano venenoso",
   "no templo antigo",
-  "em um vilarejo próximo",
+  "em um acampamento próximo",
   "nas cavernas subterrâneas",
   "no cemitério de espadas",
   "no campo de batalha antigo",
 ];
 
 const partesDeMonstros = [
-  "couro resistente",
-  "dentes afiados",
-  "garras afiadas",
-  "escamas",
-  "sangue mágico",
-  "osso forte",
-  "pelagem rara",
-  "chifres",
-  "pelo venenoso",
-  "pedaço de crânio",
-  "cauda de monstro",
-  "tendão resistente",
-  "ferrão venenoso",
-  "unha de ferocidade",
-  "1x adaga de osso",
+  // Itens Comuns (frequente)
+  "Couro de criatura",
+  "Couro de criatura",
+  "Couro de criatura",
+  "Couro de criatura",
+  "Sangue Grosso",
+  "Sangue Grosso",
+  "Sangue Grosso",
+  "Sangue Grosso",
+  "Pelagem Rústica",
+  "Pelagem Rústica",
+  "Pelagem Rústica",
+  "Pelagem Rústica",
+  "Osso de Monstro",
+  "Osso de Monstro",
+  "Osso de Monstro",
+  "Osso de Monstro",
+  
+  // Itens Incomuns (médio)
+  "Pote de Veneno Básico",
+  "Pote de Veneno Básico",
+  "Pote de Veneno Básico",
+  "Pote de Ácido",
+  "Pote de Ácido",
+  "Pote de Ácido",
+  "Adaga de Osso",
+  "Adaga de Osso",
+  "Adaga de Osso",
+  
+  // Itens Raros (baixo)
+  "Gema Menor Aleatória",
+  "Gema Menor Aleatória",
+  "Pote de Veneno Potente",
+  "Pote de Veneno Potente",
+  "Frasco de Ácido Concentrado",
+  "Frasco de Ácido Concentrado",
+  
+  // Itens Ultra Raros (raríssimo)
+  "Gema Maior Aleatória",
+  "Escamas Raras"
 ];
 
 const suprimentosAlquimia = [
@@ -149,6 +173,8 @@ const suprimentosAlquimia = [
   "Flor de Sangue (Poção de Cura)",
   "Flor de Sangue (Poção de Cura)",
   "Flor de Sangue (Poção de Cura)",
+  "Flor de Sangue (Poção de Cura)",
+  "Folhas de Eldoria (Poção de Cura)",
   "Folhas de Eldoria (Poção de Cura)",
   "Folhas de Eldoria (Poção de Cura)",
   "Folhas de Eldoria (Poção de Cura)",
@@ -157,13 +183,10 @@ const suprimentosAlquimia = [
   "Musgo Dourado (Poção de Resistência)",
   "Musgo Dourado (Poção de Resistência)",
   "Musgo Dourado (Poção de Resistência)",
-  "Erva-dos-Ventos (Poção de Velocidade)",
-  "Erva-dos-Ventos (Poção de Velocidade)",
-  "Cacto Espinhoso (Poção de Regeneração)",
-  "Cacto Espinhoso (Poção de Regeneração)",
-  "Cascas de Fungo Negro (Antídoto)",
-  "Cascas de Fungo Negro (Antídoto)",
-  // Ingredientes mais raros (menos chances)
+  "Musgo Dourado (Poção de Resistência)",
+  "Musgo Dourado (Poção de Resistência)",
+
+  // Ingredientes incomuns (menos chances)
   "Raiz de Mandrágora (Poção de Força de Gigante)",
   "Raiz de Mandrágora (Poção de Força de Gigante)",
   "Raiz de Mandrágora (Poção de Força de Gigante)",
@@ -183,7 +206,7 @@ const suprimentosAlquimia = [
   "Flor de Cristal (Poção de Magia)",
   "Flor de Cristal (Poção de Magia)",
 
-  // Poções de muito Raras
+  // Ingredientes Raros
   "2x Flor de Sangue (Poção de Cura)",
   "2x Flor de Sangue (Poção de Cura)",
   "Raiz de Chifre-de-Águia (Poção de Voo)",
@@ -192,6 +215,12 @@ const suprimentosAlquimia = [
   "Flor da Lua (Poção de Invisibilidade)",
   "1x Poção de Cura",
   "1x Poção de Cura",
+  "Erva-dos-Ventos (Poção de Velocidade)",
+  "Erva-dos-Ventos (Poção de Velocidade)",
+  "Cacto Espinhoso (Poção de Regeneração)",
+  "Cacto Espinhoso (Poção de Regeneração)",
+  "Cascas de Fungo Negro (Antídoto)",
+  "Cascas de Fungo Negro (Antídoto)",
 
   // Poções de Ultra Raras
   "1x Poção de Cura Maior",
