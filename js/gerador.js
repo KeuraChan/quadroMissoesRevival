@@ -72,7 +72,7 @@ export function gerarMissao(rand) {
   }
 
   // Escala por dias
-  valor = Math.floor(valor * dias * 0.5);
+  valor = Math.floor(valor / (1/dias) * Math.floor(rand() * 1.8));
 
   return {
     tipo,
@@ -84,5 +84,6 @@ export function gerarMissao(rand) {
     recompensaExtra
   };
 }
+
 
 
