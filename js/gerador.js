@@ -62,13 +62,13 @@ export function gerarMissao(rand) {
   }
 
   if (tipo === "coletar") {
-    valor = Math.floor(rand() * 15) + 5;
+    valor = Math.floor(rand() * 5) + 5;
     recompensaExtra =
       suprimentosAlquimia[Math.floor(rand() * suprimentosAlquimia.length)];
   }
 
   if (tipo === "resgatar") {
-    valor = Math.floor(rand() * 10) + 20;
+    valor = Math.floor(rand() * 20) + 20;
   }
 
   // Escala por dias
@@ -84,4 +84,5 @@ export function gerarMissao(rand) {
     recompensaExtra
   };
 }
+
 
