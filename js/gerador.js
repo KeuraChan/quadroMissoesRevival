@@ -12,6 +12,17 @@ export function mulberry32(a) {
   };
 }
 
+function formatarMoedas(valor) {
+  const po = Math.floor(valor / 10);
+  const pp = valor % 10;
+
+  let resultado = [];
+  if (po > 0) resultado.push(`${po} po`);
+  if (pp > 0) resultado.push(`${pp} pp`);
+
+  return resultado.join(", ");
+}
+
 export function gerarMissao(rand) {
   const tipos = ["resgatar", "matar", "coletar"];
   const tipo = tipos[Math.floor(rand() * tipos.length)];
@@ -20,47 +31,42 @@ export function gerarMissao(rand) {
   const local = locais[Math.floor(rand() * locais.length)];
 
   // 🎯 Dificuldade
-  const dificuldades = ["Fácil", "Média", "Difícil", "Perigosa"];
+  const dificuldades = [1,2,3,4,5,6,7,8,10,11,12,13,14,15];
   const dificuldade =
     dificuldades[Math.floor(rand() * dificuldades.length)];
 
-  // ⏳ Dias para concluir
-  let dias = 1;
-  if (dificuldade === "Média") dias = 2;
-  if (dificuldade === "Difícil") dias = 3;
-  if (dificuldade === "Perigosa") dias = 4;
+  const dias = dificuldade;
 
-  // 💰 Recompensas
-  let ouro = 0;
+  // 💰 Recompensas (valor base em prata)
+  let valor = 0;
   let recompensaExtra = null;
 
   if (tipo === "matar") {
-    ouro = Math.floor(rand() * 30) + 10;
+    valor = Math.floor(rand() * 10) + 10;
     recompensaExtra =
       partesDeMonstros[Math.floor(rand() * partesDeMonstros.length)];
   }
 
   if (tipo === "coletar") {
-    ouro = Math.floor(rand() * 15) + 5;
+    valor = Math.floor(rand() * 15) + 5;
     recompensaExtra =
       suprimentosAlquimia[Math.floor(rand() * suprimentosAlquimia.length)];
   }
 
   if (tipo === "resgatar") {
-    ouro = Math.floor(rand() * 40) + 20;
+    valor = Math.floor(rand() * 10) + 20;
   }
 
-  // Ajuste por dificuldade
-  if (dificuldade === "Difícil") ouro += 15;
-  if (dificuldade === "Perigosa") ouro += 30;
+  // Escala por dias
+  valor = Math.floor(valor * dias * 0.5);
 
   return {
-    tipo,              // matar / resgatar / coletar
+    tipo,
     alvo,
     local,
     dificuldade,
     dias,
-    ouro,
+    ouro: formatarMoedas(valor), // 👈 agora já vem "X po, Y pp"
     recompensaExtra
   };
 }
