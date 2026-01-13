@@ -1,4 +1,4 @@
-const locais = [
+export const locais = [
   "nas florestas próximas",
   "nas montanhas",
   "em uma caverna",
@@ -13,4 +13,5 @@ const locais = [
   "nas cavernas subterrâneas",
   "no cemitério de espadas",
   "no campo de batalha antigo",
+
 ];
