@@ -19,5 +19,30 @@ export function gerarMissao(rand) {
   const alvo = alvos[tipo][Math.floor(rand() * alvos[tipo].length)];
   const local = locais[Math.floor(rand() * locais.length)];
 
-  return `${tipo.toUpperCase()}: ${alvo} ${local}`;
+  let ouro = 0;
+  let recompensaExtra = "";
+
+  if (tipo === "matar") {
+    ouro = Math.floor(rand() * 30) + 1;
+    recompensaExtra =
+      partesDeMonstros[Math.floor(rand() * partesDeMonstros.length)];
+  }
+
+  if (tipo === "coletar") {
+    ouro = Math.floor(rand() * 10) + 1;
+    recompensaExtra =
+      suprimentosAlquimia[Math.floor(rand() * suprimentosAlquimia.length)];
+  }
+
+  if (tipo === "resgatar") {
+    ouro = Math.floor(rand() * 40) + 20;
+  }
+
+  return {
+    tipo,
+    alvo,
+    local,
+    ouro,
+    recompensaExtra
+  };
 }
