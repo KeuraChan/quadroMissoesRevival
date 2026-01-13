@@ -22,7 +22,7 @@ window.onload = () => {
       <h3>${missao.tipo} ${missao.alvo}</h3>
       <p><strong>Local:</strong> ${missao.local}</p>
 
-      <p><strong>Dificuldade:</strong> ${missao.dificuldade}</p>
+      <p><strong>Dificuldade:</strong> ${missao.dificuldade}/15</p>
       <p><strong>Prazo:</strong> ${missao.dias} dia(s)</p>
 
       <hr>
@@ -39,4 +39,5 @@ window.onload = () => {
     container.appendChild(div);
   }
 };
+
 
