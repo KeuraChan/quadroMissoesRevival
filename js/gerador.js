@@ -19,17 +19,29 @@ export function gerarMissao(rand) {
   const alvo = alvos[tipo][Math.floor(rand() * alvos[tipo].length)];
   const local = locais[Math.floor(rand() * locais.length)];
 
+  // 🎯 Dificuldade
+  const dificuldades = ["Fácil", "Média", "Difícil", "Perigosa"];
+  const dificuldade =
+    dificuldades[Math.floor(rand() * dificuldades.length)];
+
+  // ⏳ Dias para concluir
+  let dias = 1;
+  if (dificuldade === "Média") dias = 2;
+  if (dificuldade === "Difícil") dias = 3;
+  if (dificuldade === "Perigosa") dias = 4;
+
+  // 💰 Recompensas
   let ouro = 0;
-  let recompensaExtra = "";
+  let recompensaExtra = null;
 
   if (tipo === "matar") {
-    ouro = Math.floor(rand() * 30) + 1;
+    ouro = Math.floor(rand() * 30) + 10;
     recompensaExtra =
       partesDeMonstros[Math.floor(rand() * partesDeMonstros.length)];
   }
 
   if (tipo === "coletar") {
-    ouro = Math.floor(rand() * 10) + 1;
+    ouro = Math.floor(rand() * 15) + 5;
     recompensaExtra =
       suprimentosAlquimia[Math.floor(rand() * suprimentosAlquimia.length)];
   }
@@ -38,10 +50,16 @@ export function gerarMissao(rand) {
     ouro = Math.floor(rand() * 40) + 20;
   }
 
+  // Ajuste por dificuldade
+  if (dificuldade === "Difícil") ouro += 15;
+  if (dificuldade === "Perigosa") ouro += 30;
+
   return {
-    tipo,
+    tipo,              // matar / resgatar / coletar
     alvo,
     local,
+    dificuldade,
+    dias,
     ouro,
     recompensaExtra
   };
