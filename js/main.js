@@ -13,9 +13,31 @@ window.onload = () => {
   const rand = mulberry32(seed);
 
   for (let i = 0; i < 9; i++) {
+    const missao = gerarMissao(rand);
+
     const div = document.createElement("div");
     div.className = "missao";
-    div.textContent = gerarMissao(rand);
+
+    div.innerHTML = `
+      <h3>${missao.tipo}</h3>
+
+      <p><strong>Alvo:</strong> ${missao.alvo}</p>
+      <p><strong>Local:</strong> ${missao.local}</p>
+
+      <p><strong>Dificuldade:</strong> ${missao.dificuldade}</p>
+      <p><strong>Prazo:</strong> ${missao.dias} dia(s)</p>
+
+      <hr>
+
+      <p><strong>Recompensa</strong></p>
+      <p>${missao.ouro}</p>
+      ${
+        missao.recompensaExtra
+          ? `<p>e ${missao.recompensaExtra}</p>`
+          : ""
+      }
+    `;
+
     container.appendChild(div);
   }
 };
