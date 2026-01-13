@@ -1,5 +1,5 @@
 // Elementos da missão
-const alvos = {
+export const alvos = {
   resgatar: [
     "criança",
     "camponês",
