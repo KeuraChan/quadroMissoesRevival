@@ -1,89 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gerador de Missões</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Permanent+Marker&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            background-image: url('img/wooden-background.jpg');
-            background-size: cover;
-            color: #fff;
-            font-family: 'Georgia', serif;
-            padding: 20px;
-            font-family: "Permanent Marker", cursive;
-            font-weight: 400;
-            font-style: normal;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador de Missões</title>
 
-        h1 {
-            width: 100%;
-            text-align: center;
-            color: rgb(255, 199, 96);
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
-        #missoesContainer {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            /* espaço entre os cards */
-            justify-content: space-between;
-            /* distribui bem os cards */
-        }
+  <style>
+    body {
+      background-image: url('img/wooden-background.jpg');
+      background-size: cover;
+      color: #fff;
+      padding: 20px;
+      font-family: "Permanent Marker", cursive;
+    }
 
-        .missao {
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.6);
-            background-image: url('https://s.tmimgcdn.com/scr/800x500/331800/vintage-paper-a-graphic-paper-texture-background_331899-original.jpg');
-            padding: 10px;
-            color: black;
-            border-radius: 8px;
-            width: calc(33.333% - 10px);
-            min-width: 200px;
-            /* 3 por linha com espaço entre */
-            box-sizing: border-box;
-            animation: 3s infinite;
-            transition: transform 0.2s ease-in-out;
-            -webkit-box-shadow: 0px 10px 6px -1px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 0px 10px 6px -1px rgba(0, 0, 0, 0.75);
-            box-shadow: 0px 10px 6px -1px rgba(0, 0, 0, 0.75);
+    h1 {
+      width: 100%;
+      text-align: center;
+      color: rgb(255, 199, 96);
+    }
 
-        }
+    #missoesContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
 
-        .missao:hover {
-            transform: scale(1.1);
-            -webkit-box-shadow: 0px 18px 11px 8px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 0px 18px 11px 8px rgba(0, 0, 0, 0.75);
-            box-shadow: 0px 18px 11px 8px rgba(0, 0, 0, 0.75);
-        }
-    </style>
+    .missao {
+      background-image: url('https://s.tmimgcdn.com/scr/800x500/331800/vintage-paper-a-graphic-paper-texture-background_331899-original.jpg');
+      padding: 10px;
+      color: black;
+      border-radius: 8px;
+      width: calc(33.333% - 10px);
+      min-width: 200px;
+      box-shadow: 0px 10px 6px rgba(0,0,0,0.75);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .missao:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 18px 11px rgba(0,0,0,0.75);
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>QUADRO DE MISSÕES REVIVAL CHRONICLES</h1>
-    <br>
-    <div id="missoesContainer"></div>
-    <script type="module" src="js/main.js"></script>
-    <script>
-        // Gera as missões automaticamente ao carregar a página
-        window.onload = () => {
-            gerarMissoesNaTela();
-        };
-    </script>
-    <footer>
-        <p style="font-size:10px; text-align: center;">Caso requisitado, recarrefue a página com ctrl+F5</p>
-    </footer>
+  <h1>QUADRO DE MISSÕES — REVIVAL CHRONICLES</h1>
+
+  <div id="missoesContainer"></div>
+
+  <!-- APENAS ISSO -->
+  <script type="module" src="js/main.js"></script>
+
+  <footer>
+    <p style="font-size:10px; text-align: center;">
+      Caso requisitado, recarregue a página com Ctrl + F5
+    </p>
+  </footer>
+
 </body>
-
 </html>
-
