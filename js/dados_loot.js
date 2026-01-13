@@ -1,4 +1,4 @@
-const partesDeMonstros = [
+export const partesDeMonstros = [
   // Itens Comuns (frequente)
   "Couro de criatura",
   "Couro de criatura",
@@ -41,7 +41,7 @@ const partesDeMonstros = [
   "Escamas Raras"
 ];
 
-const suprimentosAlquimia = [
+export const suprimentosAlquimia = [
   // Ingredientes comuns (mais chances)
   "Flor de Sangue (Poção de Cura)",
   "Flor de Sangue (Poção de Cura)",
@@ -100,4 +100,5 @@ const suprimentosAlquimia = [
   "1x Poção de Cura Maior",
   "2x Poções de Cura",
   "1x Elixir de Resistência"
+
 ]
