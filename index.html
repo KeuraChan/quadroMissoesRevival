@@ -9,44 +9,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      background-image: url('img/wooden-background.jpg');
-      background-size: cover;
-      color: #fff;
-      padding: 20px;
-      font-family: "Permanent Marker", cursive;
-    }
+   <style>
+        body {
+            background-image: url('img/wooden-background.jpg');
+            background-size: cover;
+            color: #fff;
+            font-family: 'Georgia', serif;
+            padding: 20px;
+            font-family: "Permanent Marker", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-    h1 {
-      width: 100%;
-      text-align: center;
-      color: rgb(255, 199, 96);
-    }
+        h1 {
+            width: 100%;
+            text-align: center;
+            color: rgb(255, 199, 96);
+        }
 
-    #missoesContainer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: space-between;
-    }
+        #missoesContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            /* espaço entre os cards */
+            justify-content: space-between;
+            /* distribui bem os cards */
+        }
 
-    .missao {
-      background-image: url('https://s.tmimgcdn.com/scr/800x500/331800/vintage-paper-a-graphic-paper-texture-background_331899-original.jpg');
-      padding: 10px;
-      color: black;
-      border-radius: 8px;
-      width: calc(33.333% - 10px);
-      min-width: 200px;
-      box-shadow: 0px 10px 6px rgba(0,0,0,0.75);
-      transition: transform 0.2s ease-in-out;
-    }
+        .missao {
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.6);
+            background-image: url('https://s.tmimgcdn.com/scr/800x500/331800/vintage-paper-a-graphic-paper-texture-background_331899-original.jpg');
+            padding: 10px;
+            color: black;
+            border-radius: 8px;
+            width: calc(33.333% - 10px);
+            min-width: 200px;
+            /* 3 por linha com espaço entre */
+            box-sizing: border-box;
+            animation: 3s infinite;
+            transition: transform 0.2s ease-in-out;
+            -webkit-box-shadow: 0px 10px 6px -1px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 10px 6px -1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 10px 6px -1px rgba(0, 0, 0, 0.75);
 
-    .missao:hover {
-      transform: scale(1.1);
-      box-shadow: 0px 18px 11px rgba(0,0,0,0.75);
-    }
-  </style>
+        }
+
+        .missao:hover {
+            transform: scale(1.1);
+            -webkit-box-shadow: 0px 18px 11px 8px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 18px 11px 8px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 18px 11px 8px rgba(0, 0, 0, 0.75);
+        }
 </head>
 
 <body>
@@ -66,4 +80,5 @@
 
 </body>
 </html>
+
 
