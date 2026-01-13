@@ -228,8 +228,38 @@ const suprimentosAlquimia = [
   "1x Elixir de Resistência"
 ];
 
-function gerarRecompensa(tipo, rand) {
-  const ouro =
+// ===============================
+// Utilidades
+// ===============================
+function gerarDificuldade(rand) {
+  return Math.floor(rand() * 16); // 0–15
+}
+
+function gerarTempo(rand) {
+  return Math.floor(rand() * 10) + 1; // 1–10 dias
+}
+
+// Converte cobre → ouro / prata / cobre
+function converterMoedas(cobreTotal) {
+  const ouro = Math.floor(cobreTotal / 100);
+  cobreTotal %= 100;
+
+  const prata = Math.floor(cobreTotal / 10);
+  const cobre = cobreTotal % 10;
+
+  let resultado = [];
+  if (ouro > 0) resultado.push(`${ouro} ouro`);
+  if (prata > 0) resultado.push(`${prata} prata`);
+  if (cobre > 0) resultado.push(`${cobre} cobre`);
+
+  return resultado.join(", ");
+}
+
+// ===============================
+// Recompensa
+// ===============================
+function gerarRecompensa(tipo, rand, dias) {
+  let ouroBase =
     tipo === "resgatar"
       ? Math.floor(rand() * 21) + 30
       : tipo === "matar"
@@ -238,49 +268,66 @@ function gerarRecompensa(tipo, rand) {
       ? Math.floor(rand() * 5)
       : 0;
 
+  // Converte para cobre
+  let cobreBase = ouroBase * 100;
+
+  // Fórmula: base * dias * 0.6
+  let cobreFinal = Math.floor(cobreBase * dias * 0.6);
+
   let extra;
   if (tipo === "matar") {
     extra = partesDeMonstros[Math.floor(rand() * partesDeMonstros.length)];
   } else if (tipo === "coletar") {
-    extra =
-      suprimentosAlquimia[Math.floor(rand() * suprimentosAlquimia.length)];
+    extra = suprimentosAlquimia[Math.floor(rand() * suprimentosAlquimia.length)];
   } else {
-    extra = "e uma gratificação do contratante";
+    extra = "gratificação do contratante";
   }
 
-  return `${ouro} peças de ouro + ${extra}`;
+  return `${converterMoedas(cobreFinal)} + ${extra}`;
 }
 
+// ===============================
+// Missão
+// ===============================
 function gerarMissao(rand) {
   const tipos = ["resgatar", "matar", "coletar"];
   const tipo = tipos[Math.floor(rand() * tipos.length)];
   const alvo = alvos[tipo][Math.floor(rand() * alvos[tipo].length)];
   const local = locais[Math.floor(rand() * locais.length)];
-  const recompensa = gerarRecompensa(tipo, rand);
+
+  const dificuldade = gerarDificuldade(rand);
+  const dias = gerarTempo(rand);
+  const recompensa = gerarRecompensa(tipo, rand, dias);
 
   const verbos = {
     resgatar: "Resgatar",
     matar: "Eliminar",
-    coletar: "Coletar",
+    coletar: "Coletar"
   };
 
   return {
     tipo,
+    dificuldade,
+    dias,
     descricao: `${verbos[tipo]} o(a) ${alvo} ${local}`,
-    recompensa,
+    recompensa
   };
 }
 
+// ===============================
+// Geração na Tela
+// ===============================
 function gerarMissoesNaTela() {
   const container = document.getElementById("missoesContainer");
   container.innerHTML = "";
 
-  // Sempre usa a data atual como seed (DDMMYYYY)
+  // Seed diária DDMMYYYY
   const hoje = new Date();
-  const dia = String(hoje.getDate()).padStart(2, "0");
-  const mes = String(hoje.getMonth() + 1).padStart(2, "0");
-  const ano = hoje.getFullYear();
-  const seed = parseInt(`${dia}${mes}${ano}`);
+  const seed = parseInt(
+    `${String(hoje.getDate()).padStart(2, "0")}${String(
+      hoje.getMonth() + 1
+    ).padStart(2, "0")}${hoje.getFullYear()}`
+  );
 
   const rand = mulberry32(seed);
 
@@ -290,11 +337,14 @@ function gerarMissoesNaTela() {
     const div = document.createElement("div");
     div.className = "missao";
     div.innerHTML = `
-        <strong>Missão ${i + 1}</strong><br>
-        📜 ${missao.descricao}<br>
-        🎁 Recompensa: ${missao.recompensa}<br>
-        🏷️ Tipo: ${ missao.tipo == "matar"  ? "caçar" : missao.tipo}
-      `;
+      <strong>Missão ${i + 1}</strong><br>
+      📜 ${missao.descricao}<br>
+      ⏳ Tempo: ${missao.dias} dia(s)<br>
+      ⚔️ Dificuldade: ${missao.dificuldade}/15<br>
+      🎁 Recompensa: ${missao.recompensa}<br>
+      🏷️ Tipo: ${missao.tipo === "matar" ? "caçar" : missao.tipo}
+    `;
     container.appendChild(div);
   }
 }
+
