@@ -19,9 +19,7 @@ window.onload = () => {
     div.className = "missao";
 
     div.innerHTML = `
-      <h3>${missao.tipo}</h3>
-
-      <p><strong>Alvo:</strong> ${missao.alvo}</p>
+      <h3>${missao.tipo} ${missao.alvo}</h3>
       <p><strong>Local:</strong> ${missao.local}</p>
 
       <p><strong>Dificuldade:</strong> ${missao.dificuldade}</p>
@@ -41,3 +39,4 @@ window.onload = () => {
     container.appendChild(div);
   }
 };
+
