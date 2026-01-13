@@ -31,7 +31,21 @@ export function gerarMissao(rand) {
   const local = locais[Math.floor(rand() * locais.length)];
 
   // 🎯 Dificuldade
-  const dificuldades = [1,2,3,4,5,6,7,8,10,11,12,13,14,15];
+  const dificuldades = [1, 1, 1, 1, 
+                        2, 2, 2, 2,
+                        3, 3, 3, 3,
+                        4, 4, 4, 4,
+                        5, 5, 5, 5,
+                        6, 6, 6,
+                        7, 7, 7,
+                        8, 8, 8,
+                        9, 9, 9,
+                        10, 10, 10,
+                        11, 11,
+                        12, 12,
+                        13, 13,
+                        14, 14,
+                        15];
   const dificuldade =
     dificuldades[Math.floor(rand() * dificuldades.length)];
 
@@ -70,3 +84,4 @@ export function gerarMissao(rand) {
     recompensaExtra
   };
 }
+
