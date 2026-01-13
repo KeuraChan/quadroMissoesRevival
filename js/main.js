@@ -22,9 +22,8 @@ window.onload = () => {
       <h3>${missao.tipo} ${missao.alvo} ${missao.local}</h3>
       <p><strong>Dificuldade:</strong> ${missao.dificuldade}/15</p>
       <p><strong>Recompensa</strong></p>
-      <p>${missao.ouro} ${
-        missao.recompensaExtra
-          ? `<p>e ${missao.recompensaExtra}</p>`
+      <p>${missao.ouro} ${missao.recompensaExtra
+          ? `e ${missao.recompensaExtra}`
           : ""
       }</p>   
       <p><strong>Prazo:</strong> ${missao.dias} dia(s)</p>
@@ -33,6 +32,7 @@ window.onload = () => {
     container.appendChild(div);
   }
 };
+
 
 
 
