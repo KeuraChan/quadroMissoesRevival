@@ -18,9 +18,10 @@ window.onload = () => {
     const div = document.createElement("div");
     div.className = "missao";
 
+    let cd = 12 + (missao.dificuldade - 7);
     div.innerHTML = `
       <h3>${missao.tipo} ${missao.alvo} ${missao.local}</h3>
-      <p><strong>Dificuldade:</strong> ${missao.dificuldade}/15</p>
+      <p><strong>Dificuldade:</strong> ${cd}</p>
       <p><strong>Recompensa</strong></p>
       <p>${missao.ouro} ${missao.recompensaExtra
           ? `e ${missao.recompensaExtra}`
@@ -32,7 +33,3 @@ window.onload = () => {
     container.appendChild(div);
   }
 };
-
-
-
-
