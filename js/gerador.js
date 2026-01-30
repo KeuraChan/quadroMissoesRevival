@@ -84,8 +84,3 @@ export function gerarMissao(rand) {
     recompensaExtra
   };
 }
-
-
-
-
-
