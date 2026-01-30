@@ -72,7 +72,7 @@ export function gerarMissao(rand) {
   }
 
   // Escala por dias
-  valor = Math.floor(valor / (1/dias) * Math.floor(rand() * 1.8));
+  valor = Math.floor(valor / (1/dias) * rand() * 2 + 0.1);
 
   return {
     tipo,
@@ -80,10 +80,11 @@ export function gerarMissao(rand) {
     local,
     dificuldade,
     dias,
-    ouro: formatarMoedas(valor), // 👈 agora já vem "X po, Y pp"
+    ouro: formatarMoedas(valor),
     recompensaExtra
   };
 }
+
 
 
 
