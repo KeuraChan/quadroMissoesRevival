@@ -72,8 +72,8 @@ export function gerarMissao(rand) {
   }
 
   // Escala por dias
-  let modificador = dias == 1 ? dias : dias * 0.9;
-  valor = Math.floor(valor * (rand() * 2) + 0.1) * modificador;
+  let modificador = dias === 1 ? 1 : dias * 0.9;
+  valor = Math.floor(valor * modificador);
 
   return {
     tipo,
@@ -85,5 +85,6 @@ export function gerarMissao(rand) {
     recompensaExtra
   };
 }
+
 
 
